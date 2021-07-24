@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
 import './App.css';
+import TodoTask from './components/TodoTask';
 import { iTask } from './Interfaces';
 
 function App() {
@@ -33,7 +34,12 @@ function App() {
         </div>
         <button onClick={addTask} className="mt-2">Add Task</button>
       </div>
-      <div className="todo-list"></div>
+      <div className="todo-list">
+        {todoList.map((task: iTask, key: number) =>{
+          return <TodoTask key={key} task={task} />
+        }
+        )}
+      </div>
     </div>
   );
 }
